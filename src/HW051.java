@@ -1,5 +1,5 @@
-import java.util.Arrays;
-
+import java.util.ArrayList;
+import java.util.List;
 
     public class HW051 {
         public static void main(String[] args) {
@@ -21,10 +21,18 @@ import java.util.Arrays;
             printFizzBuzz();
 
             // Task 5
-            String[] list1 = {"a", "b", "c"};
-            String[] list2 = {"1", "2", "3"};
-            String[] mergedList = mergeLists(list1, list2);
-            System.out.println("Task 5: Merged list = " + Arrays.toString(mergedList));
+            List<String> list1 = new ArrayList<>();
+            list1.add("a");
+            list1.add("b");
+            list1.add("c");
+
+            List<String> list2 = new ArrayList<>();
+            list2.add("1");
+            list2.add("2");
+            list2.add("3");
+
+            List<String> mergedList = mergeLists(list1, list2);
+            System.out.println("Task 5: Merged list = " + mergedList);
         }
 
         // Task 1: The sum of the numbers in the array
@@ -68,20 +76,18 @@ import java.util.Arrays;
         }
 
         // Task 5: Combining arrays
-        public static String[] mergeLists(String[] list1, String[] list2) {
-            int maxLength = Math.max(list1.length, list2.length);
-            String[] mergedList = new String[maxLength * 2];
-            int index = 0;
+        public static List<String> mergeLists(List<String> list1, List<String> list2) {
+            int maxLength = Math.max(list1.size(), list2.size());
+            List<String> mergedList = new ArrayList<>();
 
             for (int i = 0; i < maxLength; i++) {
-                if (i < list1.length) {
-                    mergedList[index++] = list1[i];
+                if (i < list1.size()) {
+                    mergedList.add(list1.get(i));
                 }
-                if (i < list2.length) {
-                    mergedList[index++] = list2[i];
+                if (i < list2.size()) {
+                    mergedList.add(list2.get(i));
                 }
             }
-
             return mergedList;
         }
     }
